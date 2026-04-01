@@ -1,12 +1,12 @@
 {
   "name": "todux-api",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "API for TodUx",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Raketenoscar/TodUx-backend.git"
   },
-  "license": "LicenseRef-APL",
+  "license": "MIT",
   "author": "Raktenoscar",
   "type": "module",
   "main": "server.js",

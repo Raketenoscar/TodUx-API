@@ -1,7 +1,6 @@
-License name: Attribution-Permissive License (APL)
-SPDX-License-Identifier: LicenseRef-APL
+MIT License
 
-Copyright (c) 2026 Raketenoscar
+Copyright (c) 2026 Oscar
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -13,10 +12,6 @@ furnished to do so, subject to the following conditions:
 The above copyright notice and this permission notice shall be included in all
 copies or substantial portions of the Software.
 
-When publishing or distributing the Software or any derivative works, you must
-provide appropriate credit to the original author (Raketenoscar) and include
-a reference to this license.
-
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -24,15 +19,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
-EXCEPTIONS
-
-Exceptions to the terms of this license may be granted at the sole discretion
-of the copyright holder (Raketenoscar). If you require different license terms,
-such as for commercial use without attribution requirements or other specific
-use cases, you may contact the copyright holder to negotiate alternative terms.
-
-To request an exception, please contact: TodUx@proton.me
-
-Any exceptions granted will be provided in writing and will be binding only
-when signed or otherwise agreed upon by the copyright holder.

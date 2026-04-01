@@ -16,7 +16,7 @@ export const createTodo = async (req, res, next) => {
   try {
     let { title, dueDate } = req.body;
     if (!title) {
-      res.status(400);
+      res.status(400).json({ success: false, message: "Title is required" });
       throw new Error("Title is required");
     }
     if (!dueDate) {
