@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>429 - Too many requests</title>
+    <link rel="icon" type="image/png" href="./static/img/favicon.png" />
+    <style>
+      .root {
+        text-align: center;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        padding: 3rem 2rem;
+        border-radius: 24px;
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        max-width: 500px;
+      }
+      .title {
+        font-size: 50px;
+        font-weight: 800;
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 1.5rem;
+        letter-spacing: -0.02em;
+      }
+      .subtitle {
+        color: #64748b;
+        font-size: 1.2rem;
+        margin-bottom: 2.5rem;
+        line-height: 1.6;
+      }
+      @font-face {
+        font-family: Roboto;
+        src: url("./static/fonts/Roboto-VariableFont_wdth\,wght.ttf");
+      }
+      body {
+        font-family: Roboto;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="root">
+      <h1 class="title">429 - Zu viele Requests</h1>
+      <p class="subtitle">
+        This page has been blocked due to too many requests in a short period of
+        time. Please wait a moment and try again. Why not take a look at the
+        <a href="/cheatsheet">Cheatsheet</a>
+        website to learn more about the API or visit the
+        <a href="https://todux.dev">Main Website</a>, to learn more about the
+        TodUx project.
+      </p>
+    </div>
+  </body>
+</html>

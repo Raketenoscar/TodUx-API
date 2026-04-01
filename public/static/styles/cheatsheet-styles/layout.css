@@ -1,0 +1,71 @@
+/* Overview Section */
+.overview-title {
+  color: #667eea;
+  margin-bottom: 1.5rem;
+  font-size: 1.6rem;
+}
+
+.overview-section {
+  margin-top: 2rem;
+}
+
+.overview-section-title {
+  color: #1e293b;
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+}
+
+.endpoints-list {
+  background: #f8fafc;
+  border-left: 4px solid #667eea;
+  padding: 1.5rem;
+  border-radius: 8px;
+}
+
+.endpoints-list ul {
+  margin-left: 1.5rem;
+  color: #64748b;
+  line-height: 2;
+}
+
+/* Authentication Code Block */
+.auth-code {
+  background: #e2e8f0;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-family: monospace;
+}
+
+/* Response Format Code */
+.response-format {
+  margin-top: 2rem;
+}
+
+/* Header Styles */
+.cheatsheet-header h1 {
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.01em;
+}
+
+/* Footer Header */
+.footer-header {
+  color: #667eea;
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+}
+
+/* Example Boxes */
+.example-box {
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 1rem;
+  background: #f8fafc;
+}
+
+/* Inline Code in descriptions */
+.inline-code {
+  background: #e2e8f0;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-family: monospace;
+}

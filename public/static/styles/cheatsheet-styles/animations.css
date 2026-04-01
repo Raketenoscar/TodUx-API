@@ -1,0 +1,58 @@
+/* Button Hover Animation */
+.nav-tab {
+  transition: all 0.2s ease;
+}
+
+.nav-tab:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Card Hover Animation */
+.endpoint-card {
+  transition: all 0.3s ease;
+}
+
+.endpoint-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  border-color: #e2e8f0;
+}
+
+/* Status Badge Animation */
+.status-badge {
+  transition: all 0.2s ease;
+}
+
+.status-badge:hover {
+  transform: scale(1.05);
+}
+
+/* Method Badge Animation */
+.method-badge {
+  transition: all 0.2s ease;
+}
+
+/* Footer Links Animation */
+.footer-link {
+  transition: all 0.3s ease;
+}
+
+.footer-link:hover {
+  color: #764ba2;
+  text-decoration: underline;
+}
+
+/* Smooth Section Transitions */
+.section {
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

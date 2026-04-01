@@ -1,0 +1,586 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TodUx API</title>
+    <link rel="icon" type="image/png" href="./static/img/favicon.png" />
+    <link rel="stylesheet" href="./static/styles/fonts.css" />
+    <link
+      rel="stylesheet"
+      href="./static/styles/cheatsheet-styles/general.css"
+    />
+    <link rel="stylesheet" href="./static/styles/cheatsheet-styles/main.css" />
+    <link
+      rel="stylesheet"
+      href="./static/styles/cheatsheet-styles/layout.css"
+    />
+    <link
+      rel="stylesheet"
+      href="./static/styles/cheatsheet-styles/animations.css"
+    />
+  </head>
+  <body>
+    <div class="cheatsheet-container">
+      <!-- Header -->
+      <div class="cheatsheet-header">
+        <h1>TodUx API</h1>
+        <p>API Documentation</p>
+        <div class="api-url">Base URL: /api</div>
+      </div>
+
+      <!-- Navigation -->
+      <div class="nav-tabs">
+        <button class="nav-tab active" onclick="switchSection('overview')">
+          Overview
+        </button>
+        <button class="nav-tab" onclick="switchSection('auth')">Auth</button>
+        <button class="nav-tab" onclick="switchSection('todos')">Todos</button>
+        <button class="nav-tab" onclick="switchSection('user')">User</button>
+      </div>
+
+      <!-- Overview Section -->
+      <div id="overview" class="section active">
+        <div class="endpoint-card">
+          <h2 class="overview-title">REST API for Todo Management</h2>
+          <p class="endpoint-description">
+            Complete API for managing todo lists and user accounts with JWT
+            authentication, MongoDB storage, and secure password handling.
+          </p>
+
+          <div class="info-box">
+            <div class="info-box-title">Technology Stack</div>
+            <p><strong>Framework:</strong> Node.js, Express.js</p>
+            <p><strong>Database:</strong> MongoDB with Mongoose</p>
+            <p><strong>Authentication:</strong> JWT</p>
+            <p><strong>Security:</strong> bcryptjs, ArcJet</p>
+          </div>
+
+          <div class="overview-section">
+            <h3 class="overview-section-title">Endpoints</h3>
+            <div class="endpoints-list">
+              <ul>
+                <li><strong>POST /auth/sign-up</strong> - Register new user</li>
+                <li><strong>POST /auth/sign-in</strong> - Login user</li>
+                <li><strong>GET /todos</strong> - List todos</li>
+                <li><strong>POST /todos</strong> - Create todo</li>
+                <li><strong>PUT /todos/:id</strong> - Update todo</li>
+                <li><strong>DELETE /todos/:id</strong> - Delete todo</li>
+                <li><strong>GET /users</strong> - Get user profile</li>
+                <li><strong>PUT /users</strong> - Update user</li>
+                <li><strong>DELETE /users</strong> - Delete account</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="overview-section">
+            <h3 class="overview-section-title">Authentication</h3>
+            <div class="info-box">
+              <p>
+                API uses JWT for authentication. Include token in Authorization
+                header for protected endpoints.
+              </p>
+              <p style="margin-top: 1rem">
+                <code class="auth-code"
+                  >Authorization: Bearer &lt;token&gt;</code
+                >
+              </p>
+            </div>
+          </div>
+
+          <div class="overview-section">
+            <h3 class="overview-section-title">Response Format</h3>
+            <div class="code-block">
+              <span class="code-label">Standard Response</span>
+              {
+              <span class="json-key">"success"</span>:
+              <span class="json-value">true</span>,
+              <span class="json-key">"message"</span>:
+              <span class="json-string">"description"</span>,
+              <span class="json-key">"data"</span>: {} }
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Auth Section -->
+      <div id="auth" class="section">
+        <!-- POST Sign Up -->
+        <div class="endpoint-card">
+          <div class="endpoint-header">
+            <span class="method-badge method-post">POST</span>
+            <span class="endpoint-path">/auth/sign-up</span>
+          </div>
+          <p class="endpoint-description">Register new user</p>
+
+          <div class="params-section">
+            <div class="params-title">Request Body</div>
+            <div class="param-item">
+              <span class="param-name">name</span>
+              <span class="param-type">string</span>
+            </div>
+            <div class="param-item">
+              <span class="param-name">username</span>
+              <span class="param-type">string</span>
+            </div>
+            <div class="param-item">
+              <span class="param-name">email</span>
+              <span class="param-type">string</span>
+            </div>
+            <div class="param-item">
+              <span class="param-name">password</span>
+              <span class="param-type">string</span>
+            </div>
+          </div>
+
+          <div class="examples-container">
+            <div class="example-box">
+              <span class="code-label">Request</span>
+              <div class="code-block">
+                {
+                <span class="json-key">"name"</span>:
+                <span class="json-string">"John Doe"</span>,
+                <span class="json-key">"username"</span>:
+                <span class="json-string">"johndoe"</span>,
+                <span class="json-key">"email"</span>:
+                <span class="json-string">"john@example.com"</span>,
+                <span class="json-key">"password"</span>:
+                <span class="json-string">"pass123"</span>
+                }
+              </div>
+            </div>
+
+            <div class="example-box">
+              <span class="code-label">Response (201)</span>
+              <div class="code-block">
+                {
+                <span class="json-key">"success"</span>:
+                <span class="json-value">true</span>,
+                <span class="json-key">"data"</span>: {
+                <span class="json-key">"token"</span>:
+                <span class="json-string">"eyJhbGc..."</span>,
+                <span class="json-key">"user"</span>: {} } }
+              </div>
+            </div>
+          </div>
+
+          <div class="status-codes">
+            <div class="status-badge status-201">
+              <span class="status-code">201</span>
+              <span class="status-meaning">Created</span>
+            </div>
+            <div class="status-badge status-400">
+              <span class="status-code">400</span>
+              <span class="status-meaning">Bad Request</span>
+            </div>
+            <div class="status-badge status-409">
+              <span class="status-code">409</span>
+              <span class="status-meaning">Conflict</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- POST Sign In -->
+        <div class="endpoint-card">
+          <div class="endpoint-header">
+            <span class="method-badge method-post">POST</span>
+            <span class="endpoint-path">/auth/sign-in</span>
+          </div>
+          <p class="endpoint-description">Login user</p>
+
+          <div class="params-section">
+            <div class="params-title">Request Body</div>
+            <div class="param-item">
+              <span class="param-name">email</span>
+              <span class="param-type">string</span>
+            </div>
+            <div class="param-item">
+              <span class="param-name">password</span>
+              <span class="param-type">string</span>
+            </div>
+          </div>
+
+          <div class="examples-container">
+            <div class="example-box">
+              <span class="code-label">Request</span>
+              <div class="code-block">
+                {
+                <span class="json-key">"email"</span>:
+                <span class="json-string">"john@example.com"</span>,
+                <span class="json-key">"password"</span>:
+                <span class="json-string">"pass123"</span>
+                }
+              </div>
+            </div>
+
+            <div class="example-box">
+              <span class="code-label">Response (200)</span>
+              <div class="code-block">
+                {
+                <span class="json-key">"success"</span>:
+                <span class="json-value">true</span>,
+                <span class="json-key">"data"</span>: {
+                <span class="json-key">"token"</span>:
+                <span class="json-string">"eyJhbGc..."</span>,
+                <span class="json-key">"user"</span>: {} } }
+              </div>
+            </div>
+          </div>
+
+          <div class="status-codes">
+            <div class="status-badge status-200">
+              <span class="status-code">200</span>
+              <span class="status-meaning">OK</span>
+            </div>
+            <div class="status-badge status-404">
+              <span class="status-code">404</span>
+              <span class="status-meaning">Not Found</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Todos Section -->
+      <div id="todos" class="section">
+        <!-- GET Todos -->
+        <div class="endpoint-card">
+          <div class="endpoint-header">
+            <span class="method-badge method-get">GET</span>
+            <span class="endpoint-path">/todos</span>
+          </div>
+          <p class="endpoint-description">Get all todos</p>
+
+          <div class="auth-info">
+            <span class="auth-info-text">Authentication required</span>
+          </div>
+
+          <div class="examples-container">
+            <div class="example-box">
+              <span class="code-label">Request</span>
+              <div class="code-block">
+                GET /api/todos Authorization: Bearer eyJhbGc...
+              </div>
+            </div>
+
+            <div class="example-box">
+              <span class="code-label">Response (200)</span>
+              <div class="code-block">
+                {
+                <span class="json-key">"success"</span>:
+                <span class="json-value">true</span>,
+                <span class="json-key">"data"</span>: [ {
+                <span class="json-key">"_id"</span>:
+                <span class="json-string">"..."</span>,
+                <span class="json-key">"title"</span>:
+                <span class="json-string">"Task"</span>,
+                <span class="json-key">"dueDate"</span>:
+                <span class="json-string">"2026-04-15"</span>
+                } ],
+                <span class="json-key">"count"</span>:
+                <span class="json-value">1</span>
+                }
+              </div>
+            </div>
+          </div>
+
+          <div class="status-codes">
+            <div class="status-badge status-200">
+              <span class="status-code">200</span>
+              <span class="status-meaning">OK</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- POST Create Todo -->
+        <div class="endpoint-card">
+          <div class="endpoint-header">
+            <span class="method-badge method-post">POST</span>
+            <span class="endpoint-path">/todos</span>
+          </div>
+          <p class="endpoint-description">Create new todo</p>
+
+          <div class="auth-info">
+            <span class="auth-info-text">Authentication required</span>
+          </div>
+
+          <div class="params-section">
+            <div class="params-title">Request Body</div>
+            <div class="param-item">
+              <span class="param-name">title</span>
+              <span class="param-type">string</span>
+            </div>
+            <div class="param-item">
+              <span class="param-name">dueDate</span>
+              <span class="param-type">date, null</span>
+            </div>
+          </div>
+
+          <div class="examples-container">
+            <div class="example-box">
+              <span class="code-label">Request</span>
+              <div class="code-block">
+                {
+                <span class="json-key">"title"</span>:
+                <span class="json-string">"Buy groceries"</span>,
+                <span class="json-key">"dueDate"</span>:
+                <span class="json-string">"2026-04-15"</span>
+                }
+              </div>
+            </div>
+
+            <div class="example-box">
+              <span class="code-label">Response (201)</span>
+              <div class="code-block">
+                {
+                <span class="json-key">"success"</span>:
+                <span class="json-value">true</span>,
+                <span class="json-key">"message"</span>:
+                <span class="json-string">"Todo Created"</span>,
+                <span class="json-key">"data"</span>: {} }
+              </div>
+            </div>
+          </div>
+
+          <div class="status-codes">
+            <div class="status-badge status-201">
+              <span class="status-code">201</span>
+              <span class="status-meaning">Created</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- PUT Update Todo -->
+        <div class="endpoint-card">
+          <div class="endpoint-header">
+            <span class="method-badge method-put">PUT</span>
+            <span class="endpoint-path">/todos/:id</span>
+          </div>
+          <p class="endpoint-description">Update todo</p>
+
+          <div class="auth-info">
+            <span class="auth-info-text">Authentication required</span>
+          </div>
+
+          <div class="params-section">
+            <div class="params-title">Request Body (all optional)</div>
+            <div class="param-item">
+              <span class="param-name">title</span>
+              <span class="param-type">string</span>
+            </div>
+            <div class="param-item">
+              <span class="param-name">dueDate</span>
+              <span class="param-type">date, null</span>
+            </div>
+          </div>
+
+          <div class="examples-container">
+            <div class="example-box">
+              <span class="code-label">Request</span>
+              <div class="code-block">
+                {
+                <span class="json-key">"title"</span>:
+                <span class="json-string">"Updated Task"</span>,
+                <span class="json-key">"dueDate"</span>:
+                <span class="json-string">"2026-05-20"</span>
+                }
+              </div>
+            </div>
+
+            <div class="example-box">
+              <span class="code-label">Response (200)</span>
+              <div class="code-block">
+                {
+                <span class="json-key">"success"</span>:
+                <span class="json-value">true</span>,
+                <span class="json-key">"message"</span>:
+                <span class="json-string">"Todo Updated"</span>,
+                <span class="json-key">"data"</span>: {} }
+              </div>
+            </div>
+          </div>
+
+          <div class="status-codes">
+            <div class="status-badge status-200">
+              <span class="status-code">200</span>
+              <span class="status-meaning">OK</span>
+            </div>
+            <div class="status-badge status-404">
+              <span class="status-code">404</span>
+              <span class="status-meaning">Not Found</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- DELETE Todo -->
+        <div class="endpoint-card">
+          <div class="endpoint-header">
+            <span class="method-badge method-delete">DELETE</span>
+            <span class="endpoint-path">/todos/:id</span>
+          </div>
+          <p class="endpoint-description">Delete todo</p>
+
+          <div class="auth-info">
+            <span class="auth-info-text">Authentication required</span>
+          </div>
+
+          <div class="examples-container">
+            <div class="example-box">
+              <span class="code-label">Request</span>
+              <div class="code-block">
+                DELETE /api/todos/507f1f77bcf86cd799439011 Authorization: Bearer
+                eyJhbGc...
+              </div>
+            </div>
+
+            <div class="example-box">
+              <span class="code-label">Response (200)</span>
+              <div class="code-block">
+                {
+                <span class="json-key">"success"</span>:
+                <span class="json-value">true</span>,
+                <span class="json-key">"message"</span>:
+                <span class="json-string">"Todo Deleted"</span>
+                }
+              </div>
+            </div>
+          </div>
+
+          <div class="status-codes">
+            <div class="status-badge status-200">
+              <span class="status-code">200</span>
+              <span class="status-meaning">OK</span>
+            </div>
+            <div class="status-badge status-404">
+              <span class="status-code">404</span>
+              <span class="status-meaning">Not Found</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- User Section -->
+      <div id="user" class="section">
+        <!-- GET User -->
+        <div class="endpoint-card">
+          <div class="endpoint-header">
+            <span class="method-badge method-get">GET</span>
+            <span class="endpoint-path">/users</span>
+          </div>
+          <p class="endpoint-description">Get user profile</p>
+
+          <div class="auth-info">
+            <span class="auth-info-text">Authentication required</span>
+          </div>
+
+          <div class="examples-container">
+            <div class="example-box">
+              <span class="code-label">Response (200)</span>
+              <div class="code-block">
+                {
+                <span class="json-key">"success"</span>:
+                <span class="json-value">true</span>,
+                <span class="json-key">"data"</span>: {
+                <span class="json-key">"_id"</span>:
+                <span class="json-string">"..."</span>,
+                <span class="json-key">"name"</span>:
+                <span class="json-string">"John Doe"</span>,
+                <span class="json-key">"email"</span>:
+                <span class="json-string">"john@example.com"</span>
+                } }
+              </div>
+            </div>
+          </div>
+
+          <div class="status-codes">
+            <div class="status-badge status-200">
+              <span class="status-code">200</span>
+              <span class="status-meaning">OK</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- PUT Update User -->
+        <div class="endpoint-card">
+          <div class="endpoint-header">
+            <span class="method-badge method-put">PUT</span>
+            <span class="endpoint-path">/users</span>
+          </div>
+          <p class="endpoint-description">Update user profile</p>
+
+          <div class="auth-info">
+            <span class="auth-info-text">Authentication required</span>
+          </div>
+
+          <div class="params-section">
+            <div class="params-title">Request Body (all optional)</div>
+            <div class="param-item">
+              <span class="param-name">name</span>
+              <span class="param-type">string</span>
+            </div>
+            <div class="param-item">
+              <span class="param-name">email</span>
+              <span class="param-type">string</span>
+            </div>
+            <div class="param-item">
+              <span class="param-name">password</span>
+              <span class="param-type">string</span>
+            </div>
+          </div>
+
+          <div class="status-codes">
+            <div class="status-badge status-200">
+              <span class="status-code">200</span>
+              <span class="status-meaning">OK</span>
+            </div>
+            <div class="status-badge status-409">
+              <span class="status-code">409</span>
+              <span class="status-meaning">Email exists</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- DELETE User -->
+        <div class="endpoint-card">
+          <div class="endpoint-header">
+            <span class="method-badge method-delete">DELETE</span>
+            <span class="endpoint-path">/users</span>
+          </div>
+          <p class="endpoint-description">Delete user account</p>
+
+          <div class="auth-info">
+            <span class="auth-info-text">Authentication required</span>
+          </div>
+          <div class="status-codes">
+            <div class="status-badge status-200">
+              <span class="status-code">200</span>
+              <span class="status-meaning">OK</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="cheatsheet-footer">
+          <h2 class="footer-header">API Information</h2>
+          <p>
+            REST API built with Node.js, Express, and MongoDB. Secured with JWT
+            authentication and bcryptjs password hashing.
+          </p>
+          <div class="footer-links">
+            <a href="/" class="footer-link">Home</a>
+            <a href="https://todux.dev" target="_blank" class="footer-link"
+              >Website</a
+            >
+            <a
+              href="https://github.com/raketenoscar/todux-backend"
+              target="_blank"
+              class="footer-link"
+              >GitHub</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./static/scripts/cheatsheet.js"></script>
+  </body>
+</html>
