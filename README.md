@@ -28,8 +28,8 @@ TodUx API enables you to manage users and their todos with a focus on security a
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/Raketenoscar/TodUx-backend.git
-cd TodUx-backend
+git clone https://github.com/Raketenoscar/TodUx-API.git
+cd TodUx-API
 ```
 
 2. Install dependencies:
