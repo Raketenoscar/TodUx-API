@@ -13,9 +13,9 @@ Thank you for your interest in contributing to this project! This guide will hel
 ### 2. Clone the Project Locally
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/TodUx-backend.git
-cd TodUx-backend
-git remote add upstream https://github.com/raketenoscar/TodUx-backend.git
+git clone https://github.com/YOUR_USERNAME/TodUx-API.git
+cd TodUx-API
+git remote add upstream https://github.com/raketenoscar/TodUx-API.git
 ```
 
 ### 3. Install Dependencies
